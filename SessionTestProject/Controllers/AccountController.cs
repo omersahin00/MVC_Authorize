@@ -26,19 +26,26 @@ namespace SessionTestProject.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Account>> Index()
         {
-            var accounts = _context.Accounts.ToList();
-
             try
             {
-                var dataValue = _context.Accounts.FirstOrDefault(x => x.Email == User.FindFirst(ClaimTypes.Email).Value);
-                if (dataValue != null) accounts.Remove(dataValue);
+                List<Account> accounts = _context.Accounts.ToList();
+                List<Account> activeAccounts = new List<Account>();
+
+                foreach (var account in accounts)
+                {
+                    if (account.isActive)
+                    {
+                        activeAccounts.Add(account);
+                    }
+                }
+                return View(activeAccounts);
             }
             catch (Exception ex)
             {
                 Console.WriteLine("\nBir hata oluştu:" + ex);
+                ViewBag.Error = "Bir hata oluştu: " + ex;
+                return View();
             }
-
-            return View(accounts);
         }
 
 
