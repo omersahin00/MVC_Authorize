@@ -64,7 +64,8 @@ namespace SessionTestProject.Controllers
                 // Hali hazırda böyle bir kullanıcı var mı kontrol ediliyor:
                 if (_context.Accounts.FirstOrDefault(x => x.Email == account.Email) != null)
                 {
-                    return RedirectToAction("CreateError", "Error", new { errorMessage = "Böyle bir kullanıcı zaten mevcut!" });
+                    ViewData["ErrorMessage"] = "Böyle bir kullanıcı zaten mevcut";
+                    return View();
                 }
                 else
                 {
@@ -133,18 +134,17 @@ namespace SessionTestProject.Controllers
                     ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                     await HttpContext.SignInAsync(principal, authProperties);
 
-
                     return RedirectToAction("Index", "Account");
                 }
                 else
                 {
+                    ViewData["ErrorMessage"] = "Şifre Hatalı!";
                     return View();
                 }
             }
             else
                 return RedirectToAction("CreateError", "Error", new { errorMessage = "Form doğru formatta değil!" });
         }
-
 
 
         [Authorize]
@@ -176,8 +176,6 @@ namespace SessionTestProject.Controllers
             else
                 return RedirectToAction("CreateError", "Error", new { errorMessage = "Veri tabanından kullanıcılar elde edilemedi!" });
         }
-
-
     }
 }
 

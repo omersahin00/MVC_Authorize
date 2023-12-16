@@ -12,7 +12,7 @@ namespace SessionTestProject.Controllers
         public IActionResult CreateError(string errorMessage)
         {
             ViewData["ErrorMessage"] = errorMessage;
-            return View("CreateError");
+            return View();
         }
 
         [HttpPost]
@@ -20,6 +20,5 @@ namespace SessionTestProject.Controllers
         {
             return RedirectToAction("Create", "Account");
         }
-
     }
 }

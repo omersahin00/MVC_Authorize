@@ -5,10 +5,14 @@
 <form asp-action="Create">
     <div class="form-group">
         <label asp-for="Email" class="control-label"></label>
-        <input asp-for="Email" class="form-control" type="email" required/><br />
+        <input asp-for="Email" class="form-control" type="email" required /><br />
         <label asp-for="Password" class="control-label"></label>
-        <input asp-for="Password" class="form-control" type="password" required/><br />
+        <input asp-for="Password" class="form-control" type="password" required /><br />
         <span asp-validation-for="Email" class="text-danger"></span>
+        @if (ViewData != null)
+        {
+            <p style="color:red"> @ViewData["ErrorMessage"] </p>
+        }
     </div>
     <div class="form-group">
         <input type="submit" value="Ekle" class="btn btn-primary" />
