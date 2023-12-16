@@ -1,0 +1,46 @@
+﻿@model List<SessionTestProject.Entities.Account>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session Test Project</title>
+</head>
+<body>
+    <h1>Account Information</h1>
+
+    @if (Model != null && Model.Any())
+    {
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>isActive</th>
+            </tr>
+            @foreach (var account in Model)
+            {
+                <tr>
+                    <td>@account.ID</td>
+                    <td>@account.Email</td>
+                    <td>@account.Password</td>
+                    <td>@account.isActive</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>No account information available.</p>
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <p style="color: red;">An error occurred: @ViewBag.Error</p>
+    }
+
+    @*<form asp-action="Logout" method="post">
+        <button type="submit"> Çıkış Yap </button>
+    </form>*@
+
+</body>
+</html>
