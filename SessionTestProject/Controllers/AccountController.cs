@@ -45,6 +45,9 @@ namespace SessionTestProject.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            // TempData alınıyor: Login'den gönderilmiş olabilir.
+            string? NewEmail = TempData["NewEmail"] as string;
+            if (NewEmail != null) ViewData["NewEmail"] = NewEmail;
             return View();
         }
 
@@ -54,13 +57,6 @@ namespace SessionTestProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Var ise hali hazırdaki oturum kapatılıyor:
-                if (User.Identity != null && User.Identity.IsAuthenticated)
-                {
-                    await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-                }
-
-
                 // Hali hazırda böyle bir kullanıcı var mı kontrol ediliyor:
                 if (_context.Accounts.FirstOrDefault(x => x.Email == account.Email) != null)
                 {
@@ -74,7 +70,14 @@ namespace SessionTestProject.Controllers
                     _context.Accounts.Add(account);
                     _context.SaveChanges();
 
-                    
+
+                    // Var ise hali hazırdaki oturum kapatılıyor:
+                    if (User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                    }
+
+
                     // Yeni kullanıcı ile oturum açılıyor:
                     var dataValue = _context.Accounts.FirstOrDefault(x => x.Email == account.Email && x.Password == account.Password);
                     if (dataValue != null)
@@ -116,35 +119,42 @@ namespace SessionTestProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                var dataValue = _context.Accounts.FirstOrDefault(x => x.Email == account.Email && x.Password == account.Password);
+                var dataValue = _context.Accounts.FirstOrDefault(x => x.Email == account.Email);
                 if (dataValue != null)
                 {
-                    var claims = new List<Claim>
+                    if (dataValue.Password == account.Password)
                     {
-                        new Claim(ClaimTypes.Email, account.Email)
-                    };
-                    var userIdentity = new ClaimsIdentity(claims, " ");
-
-                    var authProperties = new AuthenticationProperties
+                        var claims = new List<Claim>
+                        {
+                            new Claim(ClaimTypes.Email, account.Email)
+                        };
+                        var userIdentity = new ClaimsIdentity(claims, " ");
+                        var authProperties = new AuthenticationProperties
+                        {
+                            IsPersistent = true, // Oturumun kalıcı olmasını sağlar
+                            ExpiresUtc = DateTimeOffset.UtcNow.AddMonths(1) // Opsiyonel: Çerezin ne kadar süreyle geçerli olacağını belirler
+                        };
+                        ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                        await HttpContext.SignInAsync(principal, authProperties);
+                        return RedirectToAction("Index", "Account");
+                    }
+                    else
                     {
-                        IsPersistent = true, // Oturumun kalıcı olmasını sağlar
-                        ExpiresUtc = DateTimeOffset.UtcNow.AddMonths(1) // Opsiyonel: Çerezin ne kadar süreyle geçerli olacağını belirler
-                    };
-
-                    ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
-                    await HttpContext.SignInAsync(principal, authProperties);
-
-                    return RedirectToAction("Index", "Account");
+                        ViewData["ErrorMessage"] = "Şifre Hatalı!";
+                        return View();
+                    }
                 }
                 else
                 {
-                    ViewData["ErrorMessage"] = "Şifre Hatalı!";
-                    return View();
+                    TempData["ErrorMessage"] = "Böyle bir kullanıcı mevcut değil! Oluşturun.";
+                    TempData["NewEmail"] = account.Email;
+                    return RedirectToAction("Create", "Account");
                 }
             }
             else
                 return RedirectToAction("CreateError", "Error", new { errorMessage = "Form doğru formatta değil!" });
         }
+
 
 
         [Authorize]
