@@ -155,6 +155,29 @@ namespace SessionTestProject.Controllers
             return RedirectToAction("Login", "Account");
         }
 
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult UpdateActivate()
+        {
+            var accounts = _context.Accounts.ToList();
+            if (accounts != null)
+            {
+                foreach (var account in accounts)
+                {
+                    if (account.isActive) account.isActive = false;
+                    else account.isActive = true;
+                    _context.Accounts.Update(account);
+                }
+
+                _context.SaveChanges();
+                return RedirectToAction("Index", "Account");
+            }
+            else
+                return RedirectToAction("CreateError", "Error", new { errorMessage = "Veri tabanından kullanıcılar elde edilemedi!" });
+        }
+
+
     }
 }
 
