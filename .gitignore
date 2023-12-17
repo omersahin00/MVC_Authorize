@@ -4,3 +4,5 @@ temp
 README.Docker.md
 .dockerignore
 Beni Oku.txt
+Dockerfile
+compose.yaml
