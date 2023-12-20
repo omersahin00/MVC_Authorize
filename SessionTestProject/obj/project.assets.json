@@ -2853,11 +2853,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/omersahin/Desktop/SessionTestProject/SessionTestProject/SessionTestProject.csproj",
+      "projectUniqueName": "/Users/omersahin/Drive'ım/DOTNET/SessionTestProject/SessionTestProject/SessionTestProject.csproj",
       "projectName": "SessionTestProject",
-      "projectPath": "/Users/omersahin/Desktop/SessionTestProject/SessionTestProject/SessionTestProject.csproj",
+      "projectPath": "/Users/omersahin/Drive'ım/DOTNET/SessionTestProject/SessionTestProject/SessionTestProject.csproj",
       "packagesPath": "/Users/omersahin/.nuget/packages/",
-      "outputPath": "/Users/omersahin/Desktop/SessionTestProject/SessionTestProject/obj/",
+      "outputPath": "/Users/omersahin/Drive'ım/DOTNET/SessionTestProject/SessionTestProject/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/omersahin/.nuget/NuGet/NuGet.Config"
