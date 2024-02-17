@@ -1,0 +1,24 @@
+﻿@model string
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    @*<link rel="stylesheet" href="~/css/student-create.css" asp-append-version="true" />*@
+</head>
+<body>
+
+    @await Html.PartialAsync("../Partials/MessageBlock", model: null)
+
+    <div class="container2">
+        <h2>Oturum Açın</h2>
+        <form asp-action="Index" method="post">
+            <label for="UserName">UserName:</label>
+            <input type="text" id="UserName" name="UserName" required>
+            <label for="Password">Password:</label>
+            <input type="text" id="Password" name="Password" required>
+            <button type="submit" asp-action="Index">Giriş</button>
+        </form>
+    </div>
+
+</body>
