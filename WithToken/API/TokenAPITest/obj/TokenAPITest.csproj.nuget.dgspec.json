@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/omersahin/Desktop/TokenTestProjects/TokenAPITest/TokenAPITest/TokenAPITest.csproj": {}
+    "/Users/omersahin/Desktop/WithToken/API/TokenAPITest/TokenAPITest.csproj": {}
   },
   "projects": {
-    "/Users/omersahin/Desktop/TokenTestProjects/TokenAPITest/TokenAPITest/TokenAPITest.csproj": {
+    "/Users/omersahin/Desktop/WithToken/API/TokenAPITest/TokenAPITest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/omersahin/Desktop/TokenTestProjects/TokenAPITest/TokenAPITest/TokenAPITest.csproj",
+        "projectUniqueName": "/Users/omersahin/Desktop/WithToken/API/TokenAPITest/TokenAPITest.csproj",
         "projectName": "TokenAPITest",
-        "projectPath": "/Users/omersahin/Desktop/TokenTestProjects/TokenAPITest/TokenAPITest/TokenAPITest.csproj",
+        "projectPath": "/Users/omersahin/Desktop/WithToken/API/TokenAPITest/TokenAPITest.csproj",
         "packagesPath": "/Users/omersahin/.nuget/packages/",
-        "outputPath": "/Users/omersahin/Desktop/TokenTestProjects/TokenAPITest/TokenAPITest/obj/",
+        "outputPath": "/Users/omersahin/Desktop/WithToken/API/TokenAPITest/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/omersahin/.nuget/NuGet/NuGet.Config"

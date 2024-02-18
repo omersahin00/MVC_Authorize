@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2JQAdxJQ6GgL1/o/ui0utidO+t9EPJbJSviDwSgN6s69e/njnCXf370izZD5kjT+S60BcRh2z6vgbQv7j397gw==",
+  "dgSpecHash": "RR1ewmLyHf4wyg7Ku0GP9yds6WfD81HxJ+1WEP8kIx/7XE2pblQuLkEWm/Sc8sXcaxi9vFnPaAWnRb0ee2639A==",
   "success": true,
-  "projectFilePath": "/Users/omersahin/Desktop/TokenTestProjects/TokenAPITest/TokenAPITest/TokenAPITest.csproj",
+  "projectFilePath": "/Users/omersahin/Desktop/WithToken/API/TokenAPITest/TokenAPITest.csproj",
   "expectedPackageFiles": [
     "/Users/omersahin/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/Users/omersahin/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",

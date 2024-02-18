@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Upload Photo";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@await Html.PartialAsync("../Partials/MessageBlock")
+
+<form asp-action="Index" asp-controller="Photo" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="photo">Select Photo:</label>
+        <input type="file" name="photo" id="photo" class="form-control" accept=".jpg, .jpeg, .png" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload Photo</button>
+</form>

@@ -16,11 +16,13 @@
     <None Remove="Entities\" />
     <None Remove="Views\Login\" />
     <None Remove="Views\Partials\" />
+    <None Remove="Views\Photo\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Managers\" />
     <Folder Include="Entities\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Views\Partials\" />
+    <Folder Include="Views\Photo\" />
   </ItemGroup>
 </Project>

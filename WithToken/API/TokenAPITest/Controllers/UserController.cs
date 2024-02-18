@@ -21,7 +21,7 @@ namespace TokenAPITest.Controllers
 
 
         [HttpPost("api/Login")]
-        public IActionResult Login(User user)
+        public IActionResult Login([FromBody] User user)
         {
             string username = user.UserName;
             string password = user.Password;
@@ -58,7 +58,7 @@ namespace TokenAPITest.Controllers
         }
 
 
-        private bool IsValidUser(string username, string password)
+        private bool IsValidUser([FromBody] string username,[FromBody] string password)
         {
             User? user = _context.Users.FirstOrDefault(x => x.UserName == username && x.Password == password);
             if (user != null)
@@ -67,7 +67,7 @@ namespace TokenAPITest.Controllers
                 return false;
         }
 
-        private int GetUserId(string username)
+        private int GetUserId([FromBody] string username)
         {
             User? user = _context.Users.FirstOrDefault(x => x.UserName == username);
             if (user != null)

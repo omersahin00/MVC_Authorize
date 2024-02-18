@@ -31,11 +31,15 @@
     <None Remove="Concrete\" />
     <None Remove="Entities\" />
     <None Remove="Builder\" />
+    <None Remove="Images\" />
+    <None Remove="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Concrete\" />
     <Folder Include="Entities\" />
     <Folder Include="Builder\" />
+    <Folder Include="Images\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 </Project>
