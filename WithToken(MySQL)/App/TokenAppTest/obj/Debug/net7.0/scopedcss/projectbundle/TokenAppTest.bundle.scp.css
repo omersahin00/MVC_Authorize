@@ -1,0 +1,50 @@
+/* _content/TokenAppTest/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-sq7r9ryn30] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-sq7r9ryn30] {
+  color: #0077cc;
+}
+
+.btn-primary[b-sq7r9ryn30] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-sq7r9ryn30], .nav-pills .show > .nav-link[b-sq7r9ryn30] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-sq7r9ryn30] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-sq7r9ryn30] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-sq7r9ryn30] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-sq7r9ryn30] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-sq7r9ryn30] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+
